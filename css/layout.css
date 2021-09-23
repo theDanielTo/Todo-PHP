@@ -1,16 +1,27 @@
 body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background: #34495e;
   display: flex;
   justify-content: center;
   height: 100vh;
-  margin-top: 40px;
 }
 
-.rnd-brdr {
-  border-radius: 5px;
-  border: none;
+.main-section {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.hidden {
-  display: none;
+.add-section {
+  padding: 20px;
+  margin: 25px 0;
+  background-color: #fefffa;
+}
+
+.show-todo-section {
+  width: 100%;
+  padding: 25px;
+  background-color: #fefffa;
 }
