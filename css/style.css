@@ -18,7 +18,8 @@
 }
 
 .add-section input:focus {
-  border: 2px solid #569adf;
+  border-color: #569adf;
+  outline-style: none;
 }
 
 .add-section button {
