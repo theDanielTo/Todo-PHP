@@ -1,31 +1,49 @@
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-}
-
-body {
-  background: #34495e;
-}
-
 .main-section {
-
+  max-width: 800px;
+  margin: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.add-section {
+.add-section,
+.todo-item {
+  padding: 15px;
+  margin: 25px 0;
+  background-color: #fefffa;
+}
 
+.add-section form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.add-section input,
+.add-section button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.3rem;
 }
 
 .add-section input {
+  margin-bottom: 15px;
+  border: 2px solid #c6c8ca;
+}
 
+.add-section input:focus {
+  border: 2px solid #569adf;
 }
 
 .add-section button {
-
+  background-color: #569adf;
+  color: #fff;
+  cursor: pointer;
 }
 
 .add-section button:hover {
-
+  background-color: #6fa6dd;
 }
 
 .add-section button span {
@@ -37,11 +55,12 @@ body {
 }
 
 .show-todo-section {
-
+  padding: 15px;
+  background-color: #fefffa;
 }
 
 .todo-item {
-
+  box-shadow: 0 0 15px 2px rgb(156, 156, 156);
 }
 
 .todo-item h2 {
@@ -70,4 +89,13 @@ body {
 
 .empty {
 
+}
+
+.empty img {
+  width: 100%;
+}
+
+#dots {
+  height: 200px;
+  object-fit: cover;
 }

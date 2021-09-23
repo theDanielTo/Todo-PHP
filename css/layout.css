@@ -1,0 +1,16 @@
+body {
+  background: #34495e;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin-top: 40px;
+}
+
+.rnd-brdr {
+  border-radius: 5px;
+  border: none;
+}
+
+.hidden {
+  display: none;
+}

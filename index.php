@@ -1,35 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include "html/header.php"; ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+<div class="main-section">
+  <div class="add-section rnd-brdr">
+    <form action="">
+      <input type="text" name="title" class="rnd-brdr" placeholder="Add a todo..." />
+      <button type="submit" class="rnd-brdr">
+        Add &nbsp;
+        <span>&#43;</span>
+      </button>
+    </form>
+  </div>
 
-<body>
-  <div class="main-section">
-    <div class="add-section">
-      <form action="">
-        <input type="text" name="title" placeholder="This field is required" />
-        <button type="submit">
-          Add &nbsp;
-          <span>&#43;</span>
-        </button>
-      </form>
-    </div>
-    <div class="show-todo-section">
-      <div class="todo-item">
-        <input type="checkbox">
-        <h2>This is paoweinfwae</h2>
-        <br>
-        <small>created: 09/23/2021</small>
+  <?php
+  $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC");
+  ?>
+
+  <div class="show-todo-section rnd-brdr">
+    <?php if ($todos->rowCount() > 0) { ?>
+      <div class="todo-item rnd-brdr">
+        <div class="empty rnd-brdr">
+          <img src="img/todo-img.webp" alt="todo">
+          <img src="img/dots.gif" alt="dots" id="dots">
+        </div>
       </div>
+    <?php } ?>
 
+
+    <div class="todo-item rnd-brdr">
+      <input type="checkbox">
+      <h2>This is a todo item</h2>
+      <br>
+      <small>created: 09/23/2021</small>
     </div>
   </div>
-</body>
+</div>
 
-</html>
+<?php include "html/footer.php"; ?>
