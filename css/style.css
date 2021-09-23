@@ -62,11 +62,20 @@
 }
 
 .remove-todo {
-
+  display: block;
+  float: right;
+  width: 20px;
+  height: 20px;
+  color: #a31717;
+  text-align: center;
+  border-radius: 50%;
+  transition: background 1s;
+  cursor: pointer;
 }
 
 .remove-todo:hover {
-
+  background-color: #a31717;
+  color: #fff;
 }
 
 .checked {
@@ -94,8 +103,4 @@
 .rnd-brdr {
   border-radius: 5px;
   border: none;
-}
-
-.hidden {
-  display: none;
 }

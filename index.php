@@ -27,10 +27,16 @@
 
     <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
       <div class="todo-item rnd-brdr">
-        <input type="checkbox">
-        <h2>This is a todo item</h2>
+        <span id="<?php echo $todo['id']; ?>" class="remove-todo">x</span>
+        <?php if ($todo['checked']) { ?>
+          <input type="checkbox" class="check-box" checked>
+          <h2 class="checked"><?php echo $todo['title']; ?></h2>
+        <?php } else { ?>
+          <input type="checkbox" class="check-box">
+          <h2><?php echo $todo['title']; ?></h2>
+        <?php } ?>
         <br>
-        <small>Created: 09/23/2021</small>
+        <small>Created: <?php echo $todo['date-time']; ?></small>
       </div>
     <?php } ?>
   </div>
