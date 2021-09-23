@@ -1,0 +1,73 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background: #34495e;
+}
+
+.main-section {
+
+}
+
+.add-section {
+
+}
+
+.add-section input {
+
+}
+
+.add-section button {
+
+}
+
+.add-section button:hover {
+
+}
+
+.add-section button span {
+
+}
+
+#errorMsg {
+
+}
+
+.show-todo-section {
+
+}
+
+.todo-item {
+
+}
+
+.todo-item h2 {
+
+}
+
+.todo-item small {
+
+}
+
+.remove-todo {
+
+}
+
+.remove-todo:hover {
+
+}
+
+.checked {
+
+}
+
+.todo-item input {
+
+}
+
+.empty {
+
+}
