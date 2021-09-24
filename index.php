@@ -75,7 +75,7 @@
       //   alert(checkboxId);
       // }
 
-      $.post('app/check.php', {
+      $.post('app/toggle.php', {
         id: id
       }, data => {
         if (data != 'error') {
