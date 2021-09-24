@@ -37,15 +37,10 @@
       <div class="todo-item rnd-brdr">
         <span id="<?php echo $todo['id']; ?>" class="remove-todo">x</span>
         <?php if ($todo['checked']) { ?>
-          <input type="checkbox"
-                  class="check-box"
-                  data-todo-id="<?php echo $todo['id']; ?>"
-                  checked>
+          <input type="checkbox" class="check-box" data-todo-id="<?php echo $todo['id']; ?>" checked>
           <h2 class="checked"><?php echo $todo['title']; ?></h2>
         <?php } else { ?>
-          <input type="checkbox"
-                  class="check-box"
-                  data-todo-id="<?php echo $todo['id']; ?>">
+          <input type="checkbox" class="check-box" data-todo-id="<?php echo $todo['id']; ?>">
           <h2><?php echo $todo['title']; ?></h2>
         <?php } ?>
         <br>
@@ -57,7 +52,7 @@
 
 <script>
   $(document).ready(function() {
-    $('.remove-todo').click(function() {
+    $('.remove-todo').click(function(e) {
       const id = $(this).attr('id');
 
       $.post("app/remove.php", {
@@ -67,14 +62,32 @@
           $(this).parent().hide(600);
         }
       });
-
-      $(".check-box").click(function() {
-        const id = $(this).attr('data-todo-id');
-        $.post('app/check.php', { id: id }, data => {
-
-        })
-      });
     })
+
+    $('.check-box').click(function(e) {
+      const id = $(this).attr('data-todo-id');
+      // const checkboxId = '#' + id;
+
+      // if ($(checkboxId).attr('checked')) {
+      //   $(checkboxId).removeAttr('checked');
+      // } else {
+      //   $(checkboxId).attr('checked');
+      //   alert(checkboxId);
+      // }
+
+      $.post('app/check.php', {
+        id: id
+      }, data => {
+        if (data != 'error') {
+          const todoH2 = $(this).next();
+          if (data === '1') {
+            todoH2.removeClass('checked');
+          } else {
+            todoH2.addClass('checked');
+          }
+        }
+      })
+    });
   })
 </script>
 
