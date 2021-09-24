@@ -4,11 +4,7 @@
   <div class="add-section rnd-brdr">
     <form action="app/add.php" method="POST" autocomplete="off">
       <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
-        <input type="text"
-                name="title"
-                class="rnd-brdr"
-                placeholder="This field is required!"
-                style="border-color:#ff6666" />
+        <input type="text" name="title" class="rnd-brdr" placeholder="This field is required!" style="border-color:#ff6666" />
         <button type="submit" class="rnd-brdr">
           Add
           <i class="far fa-plus-square"></i>
@@ -41,10 +37,15 @@
       <div class="todo-item rnd-brdr">
         <span id="<?php echo $todo['id']; ?>" class="remove-todo">x</span>
         <?php if ($todo['checked']) { ?>
-          <input type="checkbox" class="check-box" checked>
+          <input type="checkbox"
+                  class="check-box"
+                  data-todo-id="<?php echo $todo['id']; ?>"
+                  checked>
           <h2 class="checked"><?php echo $todo['title']; ?></h2>
         <?php } else { ?>
-          <input type="checkbox" class="check-box">
+          <input type="checkbox"
+                  class="check-box"
+                  data-todo-id="<?php echo $todo['id']; ?>">
           <h2><?php echo $todo['title']; ?></h2>
         <?php } ?>
         <br>
@@ -53,5 +54,28 @@
     <?php } ?>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('.remove-todo').click(function() {
+      const id = $(this).attr('id');
+
+      $.post("app/remove.php", {
+        id: id
+      }, data => {
+        if (data) {
+          $(this).parent().hide(600);
+        }
+      });
+
+      $(".check-box").click(function() {
+        const id = $(this).attr('data-todo-id');
+        $.post('app/check.php', { id: id }, data => {
+
+        })
+      });
+    })
+  })
+</script>
 
 <?php include "html/footer.php"; ?>
